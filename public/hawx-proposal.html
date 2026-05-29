@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMPA — Proposal for Hawx Pest Control</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fff;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 60px;
+  }
+
+  /* Cover / Title */
+  h1:first-of-type {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #0D1A2D;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    border: none;
+    padding: 0;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #0D1A2D;
+    margin: 40px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #2563EB;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0D1A2D;
+    margin: 32px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2563EB;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 24px 0 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    color: #374151;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 32px 0;
+  }
+
+  /* Header bar */
+  .header-bar {
+    background: #0D1A2D;
+    color: white;
+    padding: 40px 60px 32px;
+    margin: -60px -60px 48px;
+  }
+
+  .header-bar h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0 0 6px;
+  }
+
+  .header-bar .subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .header-bar .meta {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+  }
+
+  /* Accent box */
+  .problem-box {
+    background: #f8fafc;
+    border-left: 4px solid #2563EB;
+    padding: 20px 24px;
+    margin: 16px 0 24px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13px;
+  }
+
+  th {
+    background: #0D1A2D;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+  }
+
+  tr:nth-child(even) td { background: #f9fafb; }
+  tr.sep { display: none; }
+
+  /* Lists */
+  ul, ol {
+    padding-left: 20px;
+    margin: 8px 0 16px;
+    color: #374151;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  /* Code / flow */
+  pre {
+    background: #0D1A2D;
+    color: #e2e8f0;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 16px 0 24px;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #1e40af;
+  }
+
+  pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+  }
+
+  /* Status badges */
+  .status-live { color: #16a34a; font-weight: 600; }
+  .status-pending { color: #d97706; font-weight: 600; }
+  .status-building { color: #2563EB; font-weight: 600; }
+
+  /* Strong */
+  strong { font-weight: 700; color: #0D1A2D; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 11px;
+    color: #9ca3af;
+    text-align: center;
+  }
+
+  /* Section point labels */
+  .point-label {
+    display: inline-block;
+    background: #2563EB;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  @media print {
+    body { padding: 0; max-width: 100%; }
+    .header-bar { margin: 0 0 48px; }
+    pre { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <h1>AMPA</h1>
+  <p class="subtitle">Full Stack D2D Rep Recruiting &amp; Management Platform</p>
+  <p class="subtitle" style="margin-top:4px;font-size:14px;color:rgba(255,255,255,0.8);">A Proposal for Hawx Pest Control</p>
+  <p class="meta">Prepared by Eric Canche &nbsp;·&nbsp; Dauntless LLC &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Confidential</p>
+</div>
+
+<h2>The Problem Hawx Has Right Now</h2>
+<p>Every summer, Hawx invests heavily in recruiting door-to-door sales reps. But three things quietly kill ROI every season:</p>
+<ul>
+  <li><strong>Bad leads getting through.</strong> Unqualified reps make it to training, waste manager time, and quit week two.</li>
+  <li><strong>Slow onboarding kills momentum.</strong> New reps are left to figure out the platform, the pitch, and the process on their own. The longer it takes to get their first sale, the higher the chance they don't come back.</li>
+  <li><strong>Managers have no visibility.</strong> There's no single place to see which reps are active, stuck, ghosting, or crushing it — until it's too late to do anything about it.</li>
+</ul>
+<p><strong>The result:</strong> High churn, high recruiting costs, undertrained reps in the field, and managers spending more time chasing people than leading them.</p>
+
+<hr>
+
+<h2>What AMPA Is Building</h2>
+<p>AMPA is a full-stack recruiting and rep management system designed specifically for the D2D industry. It handles everything from the moment a rep sees an ad to the moment they're producing in the field — and everything in between.</p>
+<p>This is not a generic CRM. This is built ground-up for how D2D sales teams actually operate.</p>
+
+<hr>
+
+<h2>The Full System — Point A to Point Z</h2>
+
+<h2>&#128�; Point A &mdash; Recruiting Funnel</h2>
+<p>A high-converting landing page targeted at 18-22 year olds looking for high-income opportunities in pest control, solar, fiber, and insurance.</p>
+<ul>
+  <li>Attracts candidates via Meta/Instagram ads</li>
+  <li>Qualifies intent with a short application form (state, vertical, experience, travel availability)</li>
+  <li>Captures explicit SMS consent — fully TCPA and A2P 10DLC compliant</li>
+  <li>Immediately triggers the AI screener the moment someone submits</li>
+</ul>
+<p><strong>Why it matters for Hawx:</strong> Only serious, pre-qualified candidates ever reach your managers.</p>
+
+<h2>&#129302; Point B &mdash; Sarah (AI Voice Screener)</h2>
+<p>An AI phone recruiter named Sarah that calls every applicant within <strong>15 seconds</strong> of form submission — 24/7, no manager required.</p>
+<ul>
+  <li>Discloses she's an AI, asks permission to continue</li>
+  <li>Hard-screens for 4 disqualifiers: commission-only, long hours, travel, no employer insurance</li>
+  <li>Runs a structured qualifying interview: why sales, goals, 1-10 interest score, start date</li>
+  <li>Qualified leads get a mystery close that builds curiosity for the M2 conversation</li>
+  <li>Full transcript, outcome, structured data, and recording logged automatically</li>
+</ul>
+<p><strong>Tech:</strong> Vapi.ai + ElevenLabs Flash v2.5 + Deepgram Nova-3 + GPT-4o-mini. Sub-2 second response latency.</p>
+<p><strong>Why it matters for Hawx:</strong> Managers only spend time on leads already screened, motivated, and primed. Sarah runs while they sleep.</p>
+
+<h2>&#128242; Point C &mdash; 10-Touch SMS Drip Sequence</h2>
+<p>An automated 10-message SMS sequence that runs in the background for every lead — answered or not.</p>
+<table>
+<tr><th>Touch</th><th>Timing</th><th>Theme</th></tr>
+<tr><td>1</td><td>Immediate</td><td>Opener — still interested?</td></tr>
+<tr><td>2</td><td>+2 hours</td><td>"Tell me more" hook</td></tr>
+<tr><td>3</td><td>+24 hours</td><td>No experience needed</td></tr>
+<tr><td>4</td><td>+3 days</td><td>Social proof ($9,400 first month)</td></tr>
+<tr><td>5</td><td>+5 days</td><td>3-question checklist + booking link</td></tr>
+<tr><td>6–10</td><td>+8 to +60 days</td><td>Objection handling, urgency, re-engagement</td></tr>
+</table>
+<p><strong>Why it matters for Hawx:</strong> No lead goes cold automatically. The system works the pipeline around the clock with zero manager involvement.</p>
+
+<h2>&#129504; Point D &mdash; William (AI Onboarding Bot)</h2>
+<p>An AI onboarding assistant named William that lives inside the AMPA Network platform and walks every new rep through onboarding step by step — from day one to first Blitz.</p>
+
+<h3>Rookie Flow</h3>
+<ul>
+  <li>Get set up on payroll (guided walkthrough + contact for issues)</li>
+  <li>Join the team group chat + introduce yourself</li>
+  <li>Complete training modules in the correct order</li>
+  <li>Memorize the pitch (William coaches step by step)</li>
+  <li>Schedule and pass the manager pass-off meeting</li>
+  <li>Schedule first Blitz — 1-2 week field simulation</li>
+</ul>
+
+<h3>Veteran Flow</h3>
+<ul>
+  <li>Walk through the leadership course (hire, fire, interview, recruit)</li>
+  <li>Get integrated into management structure</li>
+  <li>Vets who just want to sell: train, join the chat, get on Blitzes</li>
+</ul>
+
+<p><strong>Key behavior:</strong> If a rep hasn't moved to the next step in 48 hours, William follows up once — smart, not spammy.</p>
+<p><strong>Why it matters for Hawx:</strong> A rep who gets their first sale within 30 days is dramatically more likely to finish the season. William's entire job is to compress that timeline.</p>
+
+<h2>&#128187; Point E &mdash; Rep Management Command Center</h2>
+<p>A standalone management platform that syncs from AMPA Network and gives every recruiter and manager a real-time view of their entire downline.</p>
+<ul>
+  <li>Every rep signed on AMPA Network auto-populates into the dashboard</li>
+  <li><strong>🟢 Green</strong> — fully onboarded, active, producing</li>
+  <li><strong>🟡 Yellow</strong> — onboarding in progress, steps incomplete</li>
+  <li><strong>🔴 Red</strong> — ghost mode, no engagement in X days</li>
+  <li>Built-in SMS and calling — reach any rep directly from the dashboard</li>
+  <li>Progress timeline — see exactly where each rep is stuck</li>
+  <li><strong>Phase 2:</strong> Live revenue integration — Hawx sales data next to every rep's profile</li>
+  <li>Field support — send reps scripts, resources, and coaching in real time while they're knocking</li>
+</ul>
+<p><strong>Why it matters for Hawx:</strong> Right now, managers find out a rep quit when they stop showing up. This platform shows the warning signs weeks earlier — giving managers a real chance to intervene.</p>
+
+<h2>&#128202; Point F &mdash; Commission Dashboard</h2>
+<p>A live earnings tracker showing every rep exactly where they stand — built on Hawx's actual pay scales.</p>
+<ul>
+  <li>Real-time commission calculation at every account milestone</li>
+  <li>Rookie and veteran pay scale tiers built in (26% up to 75% Golden Door)</li>
+  <li>Shows reps exactly how many accounts to the next tier</li>
+  <li>Golden Door target always visible — motivation baked in</li>
+</ul>
+<p><strong>Why it matters for Hawx:</strong> Money is the #1 motivator in D2D. When reps can see their exact number in real time, they knock harder.</p>
+
+<hr>
+
+<h2>How It All Connects</h2>
+<pre>
+Meta Ad
+  ↓
+Landing Page → Application Form (TCPA Compliant)
+  ↓  Form Submit
+Sarah AI calls in 15 seconds
+  ↓
+  ├── NOT QUALIFIED → SMS drip continues (60-day re-engagement)
+  └── QUALIFIED → Post-call SMS + Calendly booking link
+        ↓
+      M2 Interview with Manager
+        ↓
+      Rep Signs on AMPA Network
+        ↓
+      William walks them through full onboarding
+        ↓
+      Command Center tracks progress in real time
+        ↓
+      First Blitz → First Sale within 30 days
+        ↓
+      Live revenue tracked on Commission Dashboard
+        ↓
+      Rep retained → returns next season
+</pre>
+
+<hr>
+
+<h2>What This Means for Hawx</h2>
+<table>
+<tr><th>Metric</th><th>Before AMPA</th><th>With AMPA</th></tr>
+<tr><td>Time to screen a lead</td><td>Hours (manual)</td><td>15 seconds (AI)</td></tr>
+<tr><td>Manager time per unqualified lead</td><td>20-45 minutes</td><td>0 minutes</td></tr>
+<tr><td>Reps who ghost before first sale</td><td>~50% industry average</td><td>Target: significantly lower</td></tr>
+<tr><td>Visibility into rep progress</td><td>None until they quit</td><td>Real-time, color-coded</td></tr>
+<tr><td>Onboarding consistency</td><td>Depends on manager</td><td>Standardized, automated</td></tr>
+<tr><td>Cost per qualified rep placed</td><td>High</td><td>Dramatically lower at scale</td></tr>
+</table>
+
+<hr>
+
+<h2>The Opportunity for Hawx</h2>
+<p>This system was designed around Hawx's pay scales, Hawx's onboarding structure, and the real challenges Hawx managers face in the field every summer.</p>
+
+<h3>Option 1 — Pilot Partnership</h3>
+<p>Run AMPA's recruiting funnel for one region this summer. Measure qualified leads, onboarding completion rates, and first-month retention against your current baseline. Zero risk — if the numbers don't move, you walk away with data.</p>
+
+<h3>Option 2 — Platform Licensing</h3>
+<p>Once the full stack is live and proven, AMPA becomes a white-label platform Hawx deploys internally across all teams and markets. Every manager gets their own Command Center. Every rep gets William. Every lead gets Sarah. The system gets smarter with volume.</p>
+
+<hr>
+
+<h2>Current Build Status</h2>
+<table>
+<tr><th>Component</th><th>Status</th></tr>
+<tr><td>Recruiting landing page</td><td><span class="status-live">✅ Live</span></td></tr>
+<tr><td>Sarah — AI voice screener</td><td><span class="status-live">✅ Live</span></td></tr>
+<tr><td>10-touch SMS sequence</td><td><span class="status-live">✅ Built</span></td></tr>
+<tr><td>Supabase database + call logging</td><td><span class="status-live">✅ Live</span></td></tr>
+<tr><td>A2P 10DLC compliance</td><td><span class="status-pending">⏳ Carrier approval in progress</span></td></tr>
+<tr><td>Sarah retry queue (no-answer callbacks)</td><td><span class="status-live">✅ Live</span></td></tr>
+<tr><td>Commission dashboard</td><td><span class="status-live">✅ Live</span></td></tr>
+<tr><td>William — onboarding bot</td><td><span class="status-building">🔨 In development</span></td></tr>
+<tr><td>Rep Management Command Center</td><td><span class="status-building">🔨 Scoped, starting development</span></td></tr>
+<tr><td>Live revenue integration (Hawx API)</td><td><span class="status-pending">📋 Phase 2 — requires Hawx data access</span></td></tr>
+</table>
+
+<hr>
+
+<h2>About Eric Canche / Dauntless LLC</h2>
+<p>Eric Canche is an active D2D sales operator with firsthand experience recruiting, managing, and retaining reps in the pest control space. Dauntless LLC is the operating entity behind AMPA Recruiting — built not by a tech company trying to understand D2D, but by someone who has lived it.</p>
+<p><strong>Contact:</strong> eric@dauntlessllc.com</p>
+
+<div class="footer">
+  This document is confidential and intended solely for the recipient. &nbsp;·&nbsp; AMPA / Dauntless LLC &nbsp;·&nbsp; 2026
+</div>
+
+</body>
+</html>
