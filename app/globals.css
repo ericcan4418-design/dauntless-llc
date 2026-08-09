@@ -1,3 +1,6 @@
+/* Satoshi — #1 trending font on Fontshare 2025/2026 */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400,300&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,10 +8,26 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #FAFAF8;
-  color: #111110;
+  background: #F9F8F6;
+  color: #0E0E0D;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Satoshi', system-ui, sans-serif;
 }
 
-/* Instrument Serif italic helper */
-.serif-italic { font-style: italic; }
+/* ─── subtle grain overlay on .grain sections ─── */
+.grain {
+  position: relative;
+}
+.grain::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+/* ─── headline tracking ─── */
+.headline { letter-spacing: -0.03em; }

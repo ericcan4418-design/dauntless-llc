@@ -9,20 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans:  ["var(--font-geist)",           "system-ui", "sans-serif"],
-        serif: ["var(--font-instrument)",      "Georgia",   "serif"],
+        sans:    ["'Satoshi'",         "system-ui", "sans-serif"],
+        serif:   ["var(--font-instrument)", "Georgia", "serif"],
       },
       colors: {
-        ink:    "#111110",
-        muted:  "#6B6B67",
-        faint:  "#9D9D99",
-        border: "#E5E5E0",
-        paper:  "#F3F3F0",
+        ink:    "#0E0E0D",
+        muted:  "#787872",
+        faint:  "#ACACAA",
+        border: "#E5E3DC",
+        paper:  "#F2F0EB",
+        warm:   "#EAE6DC",
         green: {
-          DEFAULT: "#1A6B3A",
-          light:   "#2A9557",
-          muted:   "#1A6B3A1A", // 10% opacity
+          DEFAULT: "#16603A",
+          hover:   "#124F30",
+          faint:   "#16603A14",
+          border:  "#16603A30",
         },
+      },
+      fontSize: {
+        "display-xl": ["clamp(3.5rem,8vw,7rem)",   { lineHeight: "0.95", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(2.5rem,5vw,4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.025em" }],
+        "display-md": ["clamp(1.8rem,3.5vw,3rem)", { lineHeight: "1.1",  letterSpacing: "-0.02em" }],
       },
     },
   },
