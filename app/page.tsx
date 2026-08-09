@@ -1,5 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import ApplyForm from "./components/ApplyForm";
+import VideoCard from "./components/VideoCard";
+
+/*
+ * VIDEO SLOTS — swap null → URL when Eric sends the clips
+ * MP4 from Cloudflare / Vercel CDN / any direct URL works.
+ * YouTube: use the embed URL format: https://www.youtube.com/embed/VIDEO_ID?autoplay=1
+ */
+const HERO_VIDEO_SRC   = null; // e.g. "/videos/hero-loop.mp4" or CF stream URL
+const HERO_VIDEO_POSTER = null; // e.g. "/images/hero-poster.jpg"
 
 /* ── data ──────────────────────────────────────────── */
 
@@ -102,6 +111,23 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {/* ── Hero video slot — shows when HERO_VIDEO_SRC is set ── */}
+        {HERO_VIDEO_SRC && (
+          <div className="mt-14">
+            {/* lazy import to avoid SSR issues */}
+            <div className="relative w-full overflow-hidden rounded-2xl border border-border shadow-sm" style={{aspectRatio:"16/9"}}>
+              <video
+                src={HERO_VIDEO_SRC}
+                poster={HERO_VIDEO_POSTER ?? undefined}
+                autoPlay muted loop playsInline preload="metadata"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+            </div>
+            <p className="text-[12px] text-faint mt-2">Watch: what month one actually looks like</p>
+          </div>
+        )}
       </section>
 
       {/* ═══ SOCIAL PROOF STRIP — Superhuman-style ════ */}
@@ -245,21 +271,29 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Testimonials — Raycast-style row format */}
+        {/* Testimonials — VideoCard (text-only until clips arrive, then add src/poster) */}
         <div className="divide-y divide-border">
-          {[
-            { name:"Marcus T.", ctx:"Pest Control · Texas · Summer 2026",  q:"Zero experience going in. First month I cleared $6,800. Now I'm leading a team of four." },
-            { name:"Jordan W.", ctx:"Solar · California · Q1 2026",         q:"Three weeks applying online, nothing. Applied here, was in training that week. $140K year one." },
-            { name:"Priya S.",  ctx:"Insurance · Florida · March 2026",     q:"No surprises, no BS. They told me exactly what to expect before I started. Still here." },
-          ].map(({name,ctx,q})=>(
-            <div key={name} className="py-6 grid md:grid-cols-[13rem_1fr] gap-5 items-start">
-              <div>
-                <div className="text-[14px] font-medium text-ink">{name}</div>
-                <div className="text-[12px] text-faint mt-0.5">{ctx}</div>
-              </div>
-              <p className="text-[14px] text-muted leading-relaxed">"{q}"</p>
-            </div>
-          ))}
+          <VideoCard
+            name="Marcus T."
+            context="Pest Control · Texas · Summer 2026"
+            quote="Zero experience going in. First month I cleared $6,800. Now I'm leading a team of four."
+            src={undefined}   // TODO: swap in clip URL when received
+            poster={undefined}
+          />
+          <VideoCard
+            name="Jordan W."
+            context="Solar · California · Q1 2026"
+            quote="Three weeks applying online, nothing. Applied here, was in training that week. $140K year one."
+            src={undefined}
+            poster={undefined}
+          />
+          <VideoCard
+            name="Priya S."
+            context="Insurance · Florida · March 2026"
+            quote="No surprises, no BS. Told me exactly what to expect before I started. Still here."
+            src={undefined}
+            poster={undefined}
+          />
         </div>
       </section>
 
