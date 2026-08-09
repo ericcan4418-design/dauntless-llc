@@ -1,58 +1,41 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Instrument_Serif, Geist } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-geist",
   display: "swap",
-  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Dauntless LLC — Building America's Top Sales Teams",
+  title: "Dauntless — We Build Entrepreneurs",
   description:
-    "Dauntless LLC identifies, recruits, and places high-performance sales talent across the United States. Specializing in D2D, pest control, solar, fiber, and insurance.",
-  keywords: [
-    "sales staffing",
-    "sales recruiting",
-    "door to door recruiting",
-    "D2D sales",
-    "sales talent",
-    "workforce development",
-  ],
+    "Dauntless is a D2D sales channel for people who want more than a job. We teach you how to sell, lead, invest, and build. No experience required — just will and coachability.",
+  keywords: ["D2D sales", "entrepreneur", "sales training", "financial independence", "recruiting"],
   openGraph: {
-    title: "Dauntless LLC — Building America's Top Sales Teams",
+    title: "Dauntless — We Build Entrepreneurs",
     description:
-      "We identify, recruit, and place high-performance sales talent across the United States. From the first conversation to a signed offer — we deliver.",
-    url: "https://dauntlessllc.com",
-    siteName: "Dauntless LLC",
-    locale: "en_US",
+      "No experience required. Just will, coachability, and the hunger to build something real.",
+    url: "https://dauntless-llc.vercel.app",
+    siteName: "Dauntless",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dauntless LLC — Building America's Top Sales Teams",
-    description:
-      "We identify, recruit, and place high-performance sales talent across the United States.",
-  },
-  metadataBase: new URL("https://dauntlessllc.com"),
+  metadataBase: new URL("https://dauntless-llc.vercel.app"),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${instrumentSerif.variable} ${geist.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

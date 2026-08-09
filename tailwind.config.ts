@@ -8,21 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        navy: {
-          DEFAULT: "#0D1627",
-          light: "#1a2744",
-          dark: "#080f1c",
-        },
-        gold: {
-          DEFAULT: "#F59E0B",
-          light: "#FCD34D",
-          dark: "#D97706",
-        },
-      },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        serif: ["Georgia", "serif"],
+        sans:  ["var(--font-geist)",           "system-ui", "sans-serif"],
+        serif: ["var(--font-instrument)",      "Georgia",   "serif"],
+      },
+      colors: {
+        ink:    "#111110",
+        muted:  "#6B6B67",
+        faint:  "#9D9D99",
+        border: "#E5E5E0",
+        paper:  "#F3F3F0",
+        green: {
+          DEFAULT: "#1A6B3A",
+          light:   "#2A9557",
+          muted:   "#1A6B3A1A", // 10% opacity
+        },
       },
     },
   },
