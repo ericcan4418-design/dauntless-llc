@@ -13,12 +13,12 @@ const config: Config = {
         serif:   ["var(--font-instrument)", "Georgia", "serif"],
       },
       colors: {
-        ink:    "#0E0E0D",
-        muted:  "#787872",
-        faint:  "#ACACAA",
-        border: "#E5E3DC",
-        paper:  "#F2F0EB",
-        warm:   "#EAE6DC",
+        ink:    "#0C0C0B",
+        muted:  "#4E4E48",   /* was #787872 — much darker, readable */
+        faint:  "#898982",   /* was #ACACAA */
+        border: "#E0DED7",
+        paper:  "#F0EDE8",
+        warm:   "#E6E2D8",
         green: {
           DEFAULT: "#16603A",
           hover:   "#124F30",

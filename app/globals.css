@@ -1,5 +1,5 @@
-/* Satoshi — #1 trending font on Fontshare 2025/2026 */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400,300&display=swap');
+/* Satoshi — variable weights */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,21 +13,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Satoshi', system-ui, sans-serif;
+  font-weight: 500;   /* Satoshi Medium as base — kills the skinny look */
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-/* ─── subtle grain overlay on .grain sections ─── */
-.grain {
-  position: relative;
+/* All body-level text inherits 500 */
+p, li, span, div, a, label, select, textarea, input, button {
+  font-weight: inherit;
 }
+
+/* Muted text still readable at 500 */
+.text-muted, .text-faint {
+  font-weight: 500;
+}
+
+/* grain texture on sections */
+.grain { position: relative; overflow: hidden; }
 .grain::before {
   content: '';
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  z-index: 0;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 128px;
 }
-
-/* ─── headline tracking ─── */
-.headline { letter-spacing: -0.03em; }
+.grain > * { position: relative; z-index: 1; }
