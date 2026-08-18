@@ -335,34 +335,40 @@ export default function Home() {
           </div>
           <div className="border border-border rounded-xl p-7 bg-white">
             <p className="text-green text-[11px] font-semibold uppercase tracking-widest mb-3">Travel & Sell</p>
-            <p className="font-medium text-[15px] text-ink mb-2">Work from anywhere. Build everywhere.</p>
-            <p className="text-[14px] text-muted leading-relaxed">D2D is one of the only careers where you can pack a bag and go make money in a new city. We’ve got people selling in markets across the country — on their own terms.</p>
+            <p className="font-medium text-[15px] text-ink mb-2">Go where the money is. Or stay home.</p>
+            <p className="text-[14px] text-muted leading-relaxed">Most of our reps sell right in their own backyard. Some pack a bag and go make serious money in a new market. Both work. You decide what fits your life.</p>
+            <p className="text-[11px] text-faint mt-3">Travel spots are limited and require hitting performance thresholds first. Local opportunities available in most markets.</p>
           </div>
         </div>
 
-        {/* Testimonials — VideoCard (text-only until clips arrive, then add src/poster) */}
-        <div className="divide-y divide-border">
-          <VideoCard
-            name="Marcus T."
-            context="Pest Control · Texas · Summer 2026"
-            quote="Zero experience going in. First month I cleared $6,800. Now I'm leading a team of four."
-            src={undefined}   // TODO: swap in clip URL when received
-            poster={undefined}
-          />
-          <VideoCard
-            name="Jordan W."
-            context="Solar · California · Q1 2026"
-            quote="Three weeks applying online, nothing. Applied here, was in training that week. $140K year one."
-            src={undefined}
-            poster={undefined}
-          />
-          <VideoCard
-            name="Priya S."
-            context="Insurance · Florida · March 2026"
-            quote="No surprises, no BS. Told me exactly what to expect before I started. Still here."
-            src={undefined}
-            poster={undefined}
-          />
+        {/* ── Zero to Hero ── */}
+        <div className="mt-16">
+          <div className="mb-10">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-2">Zero to Hero</p>
+            <h3 className="font-serif text-[2rem] leading-tight">20+ six-figure earners.<br /><em className="text-green">All under 21.</em></h3>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              { name: "Tyler M.",  age: 19, vertical: "Pest Control", state: "Arizona",    earned: "$162K",  detail: "Zero sales experience. Started summer. Hit $150K threshold, took the international trip. Now managing a team of 8."},
+              { name: "Jake R.",   age: 20, vertical: "Pest Control", state: "Texas",      earned: "$218K",  detail: "Walked doors two weeks after graduation. Vet trip his second season. Bought his first rental property at 20."},
+              { name: "Marcus D.",  age: 18, vertical: "Fiber",        state: "Utah",       earned: "$124K",  detail: "300 fiber accounts in one season. Team retreat, week-long. Now running his own crew in a second market."},
+              { name: "Cameron L.",age: 20, vertical: "Pest Control", state: "Florida",    earned: "$189K",  detail: "First job out of high school. Cleared six figures before his 21st birthday. International trip, year one."},
+              { name: "Noah T.",   age: 19, vertical: "Fiber",        state: "Nevada",     earned: "$143K",  detail: "Sold fiber locally for six months, then traveled to a new market. Hit 300 accounts. Week-long retreat with the team."},
+              { name: "Braden S.", age: 21, vertical: "Pest Control", state: "California", earned: "$241K",  detail: "Came in knowing nothing. Two seasons later he's one of our top regional producers. Greece trip, European cruise."},
+            ].map(({ name, age, vertical, state, earned, detail }) => (
+              <div key={name} className="border border-border rounded-xl p-7 bg-white hover:border-green/30 transition-colors">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <p className="font-semibold text-[15px] text-ink">{name}</p>
+                    <p className="text-[12px] text-faint">{vertical} · {state} · Age {age}</p>
+                  </div>
+                  <span className="font-serif text-[1.6rem] text-green leading-none">{earned}</span>
+                </div>
+                <p className="text-[13px] text-muted leading-relaxed">{detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[11px] text-faint mt-4">Placeholder profiles. Real names and stories coming soon.</p>
         </div>
       </section>
 
