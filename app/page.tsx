@@ -271,6 +271,25 @@ export default function Home() {
           ))}
         </div>
 
+        {/* ── Pest Control Vertical — Hawx Verified Numbers ── */}
+        <div className="mt-16 mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-6">Pest Control · Hawx Verified Numbers</p>
+          <div className="grid grid-cols-3 gap-px bg-border">
+            {[
+              ["$714,617", "avg top 10 earners",  "summer season"],
+              ["$482,077", "avg top 20 earners",  "summer season"],
+              ["$101,284", "avg top 100 earners", "summer season"],
+            ].map(([n,l,s])=>(
+              <div key={n} className="bg-[#F9F8F6] p-8">
+                <div className="font-serif text-[2.5rem] text-green leading-none mb-2">{n}</div>
+                <div className="text-[13px] font-medium text-ink mb-0.5">{l}</div>
+                <div className="text-[12px] text-faint">{s}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-[11px] text-faint mt-2">Source: hawx-sales.com</p>
+        </div>
+
         {/* Testimonials — VideoCard (text-only until clips arrive, then add src/poster) */}
         <div className="divide-y divide-border">
           <VideoCard
