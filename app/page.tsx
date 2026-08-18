@@ -335,9 +335,9 @@ export default function Home() {
           </div>
           <div className="border border-border rounded-xl p-7 bg-white">
             <p className="text-green text-[11px] font-semibold uppercase tracking-widest mb-3">Travel & Sell</p>
-            <p className="font-medium text-[15px] text-ink mb-2">Go where the money is. Or stay home.</p>
-            <p className="text-[14px] text-muted leading-relaxed">Most of our reps sell right in their own backyard. Some pack a bag and go make serious money in a new market. Both work. You decide what fits your life.</p>
-            <p className="text-[11px] text-faint mt-3">Travel spots are limited and require hitting performance thresholds first. Local opportunities available in most markets.</p>
+            <p className="font-medium text-[15px] text-ink mb-2">Pack up. Go make money somewhere new.</p>
+            <p className="text-[14px] text-muted leading-relaxed">Our leaders travel. That’s just how we operate. We go where the best markets are, build in new cities, and bring the right people with us. It’s one of the best parts of this career.</p>
+            <p className="text-[11px] text-faint mt-3">Local spots are limited and based on market availability. Most reps who join us travel — that’s the standard.</p>
           </div>
         </div>
 
