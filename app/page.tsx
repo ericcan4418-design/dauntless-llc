@@ -294,30 +294,28 @@ export default function Home() {
         <div className="mt-16 border border-border rounded-2xl p-10 bg-white">
           <div className="grid md:grid-cols-2 gap-10 items-start">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-3">Incentive Trips</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-3">Where the top reps go</p>
               <h3 className="font-serif text-[2rem] leading-tight mb-4">
-                Top performers don’t just earn more.<br />
-                <em className="text-green">They go further.</em>
+                The money is one part.<br />
+                <em className="text-green">The life is the other.</em>
               </h3>
-              <p className="text-[14px] text-muted leading-relaxed">Every year we take our top reps and leaders on fully-paid trips around the world. Not a gift — a reward for people who earned it. High-class travel, world-class training, and the kind of experiences most people only see on Instagram.</p>
+              <p className="text-[14px] text-muted leading-relaxed">Every year, the people who put in the work get taken somewhere. Fully paid. No fine print. We’ve done Greece, a European cruise, Costa Rica, Spain. The trips change. The standard doesn’t — you earn it, you’re on it.</p>
+              <p className="text-[14px] text-muted leading-relaxed mt-3">Same goes for training. We invest in the people who invest in themselves — real sales education, leadership development, and access to some of the top minds in D2D.</p>
             </div>
             <div className="divide-y divide-border">
               {[
-                ["Greece",           "All-expenses paid. Mediterranean coast."],
-                ["European Cruise",  "Full cruise through Europe with the team."],
-                ["Costa Rica",       "Adventure + leadership training."],
-                ["Spain",            "Culture, connection, and top-producer events."],
+                ["Greece",           "Mediterranean. Fully paid."],
+                ["European Cruise",  "The whole team, open sea."],
+                ["Costa Rica",       "Leadership retreat."],
+                ["Spain",            "Top producer trip."],
               ].map(([place, desc]) => (
-                <div key={place} className="py-4 flex gap-4 items-start">
-                  <span className="text-green text-[11px] font-mono font-semibold mt-0.5 shrink-0">→</span>
-                  <div>
-                    <span className="text-[14px] font-semibold text-ink">{place}</span>
-                    <span className="text-[13px] text-muted ml-2">{desc}</span>
-                  </div>
+                <div key={place} className="py-4 flex gap-4 items-baseline">
+                  <span className="font-serif text-[1.4rem] text-green leading-none shrink-0">{place}</span>
+                  <span className="text-[13px] text-muted">{desc}</span>
                 </div>
               ))}
-              <div className="pt-4">
-                <p className="text-[12px] text-faint">Sales training, leadership development, and incentive travel — included for top earners every year.</p>
+              <div className="pt-5">
+                <p className="text-[12px] text-faint">Past team trips. New destination announced each year for top earners.</p>
               </div>
             </div>
           </div>
