@@ -274,7 +274,7 @@ export default function Home() {
         {/* ── Pest Control Vertical — Hawx Verified Numbers ── */}
         <div className="mt-16 mb-4">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-1">Our Verticals</p>
-          <p className="text-[14px] text-muted mb-6">We place reps with Hawx Pest Control — one of the fastest-growing D2D pest control companies in the country. Here's what their reps actually earn.</p>
+          <p className="text-[14px] text-muted mb-6">We are a regional sales team with Hawx Pest Control. Here’s what our reps earn.</p>
           <div className="grid grid-cols-3 gap-px bg-border">
             {[
               ["$714,617", "avg top 10 earners",  "pest control · Hawx"],
