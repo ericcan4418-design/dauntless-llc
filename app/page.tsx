@@ -273,12 +273,13 @@ export default function Home() {
 
         {/* ── Pest Control Vertical — Hawx Verified Numbers ── */}
         <div className="mt-16 mb-4">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-6">Pest Control · Hawx Verified Numbers</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-green mb-1">Our Verticals</p>
+          <p className="text-[14px] text-muted mb-6">We place reps with Hawx Pest Control — one of the fastest-growing D2D pest control companies in the country. Here's what their reps actually earn.</p>
           <div className="grid grid-cols-3 gap-px bg-border">
             {[
-              ["$714,617", "avg top 10 earners",  "summer season"],
-              ["$482,077", "avg top 20 earners",  "summer season"],
-              ["$101,284", "avg top 100 earners", "summer season"],
+              ["$714,617", "avg top 10 earners",  "pest control · Hawx"],
+              ["$482,077", "avg top 20 earners",  "pest control · Hawx"],
+              ["$101,284", "avg top 100 earners", "pest control · Hawx"],
             ].map(([n,l,s])=>(
               <div key={n} className="bg-[#F9F8F6] p-8">
                 <div className="font-serif text-[2.5rem] text-green leading-none mb-2">{n}</div>
@@ -287,7 +288,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-[11px] text-faint mt-2">Source: hawx-sales.com</p>
         </div>
 
         {/* Testimonials — VideoCard (text-only until clips arrive, then add src/poster) */}
