@@ -321,6 +321,25 @@ export default function Home() {
           </div>
         </div>
 
+        {/* ── What You Do With the Money ── */}
+        <div className="mt-10 grid md:grid-cols-3 gap-5">
+          <div className="border border-border rounded-xl p-7 bg-white">
+            <p className="text-green text-[11px] font-semibold uppercase tracking-widest mb-3">All 50 States</p>
+            <p className="font-medium text-[15px] text-ink mb-2">Sell where you are. Or go somewhere new.</p>
+            <p className="text-[14px] text-muted leading-relaxed">We operate nationally. Stay local or pick up and move — either way there’s a market and a team waiting for you.</p>
+          </div>
+          <div className="border border-border rounded-xl p-7 bg-white">
+            <p className="text-green text-[11px] font-semibold uppercase tracking-widest mb-3">Real Estate</p>
+            <p className="font-medium text-[15px] text-ink mb-2">We teach you what to do with the money you earn.</p>
+            <p className="text-[14px] text-muted leading-relaxed">Most reps spend it. We show you how to put it to work. We actively help our people get into real estate investing — because income is just the start.</p>
+          </div>
+          <div className="border border-border rounded-xl p-7 bg-white">
+            <p className="text-green text-[11px] font-semibold uppercase tracking-widest mb-3">Travel & Sell</p>
+            <p className="font-medium text-[15px] text-ink mb-2">Work from anywhere. Build everywhere.</p>
+            <p className="text-[14px] text-muted leading-relaxed">D2D is one of the only careers where you can pack a bag and go make money in a new city. We’ve got people selling in markets across the country — on their own terms.</p>
+          </div>
+        </div>
+
         {/* Testimonials — VideoCard (text-only until clips arrive, then add src/poster) */}
         <div className="divide-y divide-border">
           <VideoCard
